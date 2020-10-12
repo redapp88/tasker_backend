@@ -178,6 +178,7 @@ public class UsersServiceImp implements UsersService {
 			AppUser user = tk.getUser();
 			user.setPassword(this.bCryptPasswordEncoder.encode(tk.getPassword()));
 			this.appUsersRepository.save(user);
+			this.resetTokenRepository.deleteById(tk.getId());
 			return "Operation reussie vous pouvez vous authentifier avec votre nouveau mot de passe";
 		}
 	}
