@@ -43,7 +43,7 @@ private FileStorageService fileStorageService;
 	}
 	@Override
 	 public ResponseEntity download(String fileName) {
-		 	Path path = Paths.get("uploads/"+ fileName);
+		 	Path path = Paths.get("target/"+ fileName);
 		 	Resource resource = null;
 		 	try {
 		 		resource = new UrlResource(path.toUri());
