@@ -40,6 +40,8 @@ private PhotosService photosService;
     return photo;
     } catch (Exception e) {
       message = "Could not upload the file: " + file.getOriginalFilename() + "!";
+      //throw new RunTimeException("error");
+      System.out.println(e);
      return null;
     }
   }
