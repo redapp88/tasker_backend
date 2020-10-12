@@ -49,12 +49,15 @@ public class TaskerApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
-		  storageService.deleteAll(); storageService.init();
+		//  storageService.deleteAll();
+		  storageService.init();
 		  this.appRoleRepository.save(new AppRole("MANAGER"));
-		  this.appRoleRepository.save(new AppRole("USER")); AppUser
-		  user=this.usersService.addUser(new
-		  UserRequest("ir.trade88@gmail.com","123456","red company","07098900",
-		  "reda@gmail.com","N24","ACTIVE"));
+			/*
+			 * this.appRoleRepository.save(new AppRole("USER")); AppUser
+			 * user=this.usersService.addUser(new
+			 * UserRequest("ir.trade88@gmail.com","123456","red company","07098900",
+			 * "reda@gmail.com","N24","ACTIVE"));
+			 */
 		 
 
 	}   

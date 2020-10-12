@@ -184,7 +184,7 @@ public class UsersServiceImp implements UsersService {
 
 	private void sendEmail(ResetToken rt) {
 try {
-	String link="http://"+InetAddress.getLoopbackAddress().getHostAddress()+":"+ environment.getProperty("server.port")+"/confirmeResetPassword?tokenId="+rt.getId();
+	String link=environment.getProperty("my.backend")+"/confirmeResetPassword?tokenId="+rt.getId();
 	String body="<p><strong>Bonjour, pour confirmer la reinitialisation du mot de passe de votre compte Tasker&nbsp;<a href='"+link+"'>cliquez ici</a></strong></p>"+
 	"<p>ou copier ce lien dans votre naviguateur</p>"+
 	"<p>"+link+"</p>"+
