@@ -27,6 +27,8 @@ public class Photo implements Serializable {
 Long id;
 String url;
 String filename;
+@Lob
+private byte[] image;
 public Photo(String url) {
 	super();
 	this.url = url;

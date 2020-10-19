@@ -33,7 +33,8 @@ private PhotosService photosService;
     String message = "";
     try {
     Photo photo=this.photosService.addPhoto("");
-    storageService.save(file,photo.getId().toString());
+    photo.setImage(file.getBytes());
+    //storageService.save(file,photo.getId().toString());
     photo.setUrl("files?filename="+photo.getId().toString()+"."+FilenameUtils.getExtension(file.getOriginalFilename()));
     photo.setFilename(photo.getId().toString()+"."+FilenameUtils.getExtension(file.getOriginalFilename()));
     this.photosService.savePhoto(photo);

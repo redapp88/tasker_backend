@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
@@ -31,7 +32,7 @@ private FileStorageService fileStorageService;
 	public void deletePhoto(Long id) {
 	Photo photo=this.getPhoto(id);
 	this.photoRepository.deleteById(id);
-	this.fileStorageService.delete(photo.getFilename());
+	//this.fileStorageService.delete(photo.getFilename());
 	}
 
 	@Override
@@ -43,13 +44,10 @@ private FileStorageService fileStorageService;
 	}
 	@Override
 	 public ResponseEntity download(String fileName) {
+		    Photo photo=this.getPhoto(new Long(FilenameUtils.removeExtension(fileName)));
 		 	Path path = Paths.get("uploads/"+ fileName);
 		 	Resource resource = null;
-		 	try {
-		 		resource = new UrlResource(path.toUri());
-		 	} catch (MalformedURLException e) {
-		 		e.printStackTrace();
-		 	}
+		 	resource = new ByteArrayResource(photo.getImage());
 		 	return ResponseEntity.ok()
 		 			.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
 		 			.body(resource);

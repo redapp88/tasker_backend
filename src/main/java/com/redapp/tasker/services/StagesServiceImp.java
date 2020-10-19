@@ -72,7 +72,7 @@ private PhotosService photosService;
 	@Override
 	public void deletePhoto(Long stageId,Long id) {
 		Stage stage=this.getStage(stageId);
-		Photo PhotoTemp = new Photo(id,null,null);
+		Photo PhotoTemp = new Photo(id,null,null,null);
 		 if(stage.getPhotos().contains(PhotoTemp)) {
 			stage.getPhotos().remove(PhotoTemp);
 			try {
