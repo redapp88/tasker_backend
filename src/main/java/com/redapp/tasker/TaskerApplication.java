@@ -51,6 +51,7 @@ public class TaskerApplication implements CommandLineRunner {
 		
 		 // storageService.deleteAll();
 		 // storageService.init();
+			
 			/*
 			 * this.appRoleRepository.save(new AppRole("MANAGER"));
 			 * 
@@ -59,6 +60,7 @@ public class TaskerApplication implements CommandLineRunner {
 			 * UserRequest("ir.trade88@gmail.com","123456","red company","07098900",
 			 * "reda@gmail.com","N24","ACTIVE"));
 			 */
+			 
 			 
 		 
 
